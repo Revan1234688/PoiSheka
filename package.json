@@ -1,0 +1,8 @@
+{
+  "name": "shekapoi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "echo ShekaPoi siap di-deploy" },
+  "dependencies": { "@netlify/blobs": "^10.0.0" }
+}

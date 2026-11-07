@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b13">
+  <title>ShekaPoi — Video pendek</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">S</span> Sheka<span>Poi</span></a>
+      <div class="top-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Cari">⌕</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Ganti tema">☼</button>
+      </div>
+    </header>
+
+    <section class="search-panel hidden" id="searchPanel">
+      <input id="searchInput" type="search" placeholder="Cari caption atau kreator...">
+    </section>
+
+    <main>
+      <section class="feed-head">
+        <div><p class="eyebrow">VIDEO UNTUKMU</p><h1>Temukan hal baru<span>.</span></h1></div>
+        <button class="filter-pill" id="refreshBtn">↻ Segarkan</button>
+      </section>
+
+      <div class="feed" id="feed">
+        <div class="loading-card">Memuat video ShekaPoi...</div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="home"><span>⌂</span>Beranda</button>
+      <button class="nav-item" data-tab="explore"><span>⌕</span>Jelajah</button>
+      <button class="create-btn" id="openUpload" aria-label="Upload video">＋</button>
+      <button class="nav-item" data-tab="saved"><span>♡</span>Disukai</button>
+      <button class="nav-item" data-tab="profile"><span>◉</span>Profil</button>
+    </nav>
+  </div>
+
+  <dialog id="uploadDialog">
+    <form id="uploadForm" class="modal-card">
+      <div class="modal-head"><div><p class="eyebrow">BAGIKAN MOMEN</p><h2>Upload video</h2></div><button type="button" class="close-btn" id="closeUpload">×</button></div>
+      <label class="file-drop" for="videoFile"><span class="upload-icon">↑</span><strong>Pilih video dari perangkat</strong><small>MP4, WebM atau MOV · maksimal 4 MB</small></label>
+      <input id="videoFile" name="video" type="file" accept="video/mp4,video/webm,video/quicktime" required>
+      <label class="field-label" for="creator">Nama kreator</label>
+      <input id="creator" name="creator" maxlength="30" placeholder="Contoh: Fachri" required>
+      <label class="field-label" for="caption">Caption</label>
+      <textarea id="caption" name="caption" maxlength="180" placeholder="Ceritakan videomu..." rows="3"></textarea>
+      <p class="upload-note">Video yang diunggah dapat dilihat publik. Jangan unggah informasi pribadi atau video orang lain tanpa izin.</p>
+      <button class="primary-btn" type="submit" id="uploadSubmit">Publikasikan video</button>
+      <p id="uploadStatus" class="status-text" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <dialog id="profileDialog">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Profil ShekaPoi</h2><button class="close-btn" id="closeProfile">×</button></div>
+      <div class="profile-avatar">S</div>
+      <h2 class="profile-title">Penjelajah ShekaPoi</h2>
+      <p class="muted">Ini adalah profil lokal untuk versi awal. Sistem akun dan follow lintas perangkat belum diaktifkan.</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
